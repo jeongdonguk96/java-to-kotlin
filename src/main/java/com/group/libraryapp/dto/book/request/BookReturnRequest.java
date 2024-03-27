@@ -13,4 +13,11 @@ public class BookReturnRequest {
     return bookName;
   }
 
+  public BookReturnRequest() {
+  }
+
+  public BookReturnRequest(String userName, String bookName) {
+    this.userName = userName;
+    this.bookName = bookName;
+  }
 }
