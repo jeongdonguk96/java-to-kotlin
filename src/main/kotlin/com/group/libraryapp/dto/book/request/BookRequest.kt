@@ -1,17 +1,8 @@
-package com.group.libraryapp.dto.book.request;
+package com.group.libraryapp.dto.book.request
 
-public class BookRequest {
+import com.group.libraryapp.domain.book.BookType
 
-  private String name;
-
-  public String getName() {
-    return name;
-  }
-
-  public BookRequest() {
-  }
-
-  public BookRequest(String name) {
-    this.name = name;
-  }
-}
+data class BookRequest(
+    val name: String,
+    val type: BookType,
+)

@@ -4,6 +4,7 @@ import com.group.libraryapp.domain.user.User
 import com.group.libraryapp.domain.user.UserRepository
 import com.group.libraryapp.dto.user.request.UserCreateRequest
 import com.group.libraryapp.dto.user.request.UserUpdateRequest
+import com.group.libraryapp.util.fail
 import org.assertj.core.api.AssertionsForInterfaceTypes.*
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.DisplayName
@@ -32,7 +33,7 @@ class UserServiceTest @Autowired constructor(
         userService.saveUser(request)
 
         // then
-        val user = userRepository.findByName("동욱").orElseThrow()
+        val user = userRepository.findByName("동욱") ?: fail()
         val allUsers = userRepository.findAll()
         assertThat(user).isNotNull
         assertThat(allUsers).hasSize(1)
